@@ -1,12 +1,25 @@
 # Fahad AI Portfolio
 
-Portfolio of Engr. Muhammad Fahad, AI/ML Engineer. A static site (`index.html` + `photo.jpg`) with a Python-themed lamp intro.
+Premium portfolio for Engr. Muhammad Fahad - AI/ML Engineer specializing in intelligent applications, Generative AI, AI Agents, and production-ready software.
 
-## Edit
-Open `index.html` and change the `CONFIG`, `PROJECTS`, `SKILLS` and `SERVICES` blocks in the script.
+## Tech Stack
+- React + TypeScript + Vite
+- Tailwind CSS
+- Framer Motion
+- Lucide React
 
-## Run locally
-`python -m http.server 8000` then open http://localhost:8000
+## Development
+`ash
+npm install
+npm run dev
+`
 
-## Deploy
-Import this repository in Vercel (framework preset: Other, no build command).
+## Build
+`ash
+npm run build
+npm run preview
+`
+
+## Deploy on Vercel
+Import the repository in Vercel. Framework Preset: Vite. Build Command: 
+pm run build. Output Directory: dist.
