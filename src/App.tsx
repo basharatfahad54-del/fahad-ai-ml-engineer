@@ -8,6 +8,7 @@ import Services from './components/Services'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CursorGlow from './components/CursorGlow'
+import RobotWorld from './components/robot/RobotWorld'
 
 function App() {
   return (
@@ -17,17 +18,20 @@ function App() {
         <div className="absolute bottom-[-30%] right-[-10%] h-[520px] w-[520px] rounded-full bg-violet/10 blur-3xl" />
       </div>
       <CursorGlow />
+      <RobotWorld />
       <Navbar />
-      <main>
-        <Hero />
-        <TrustStrip />
-        <About />
-        <Skills />
-        <Projects />
-        <Services />
-        <Contact />
-      </main>
-      <Footer />
+      <div className="relative z-10">
+        <main>
+          <Hero />
+          <TrustStrip />
+          <About />
+          <Skills />
+          <Projects />
+          <Services />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   )
 }
