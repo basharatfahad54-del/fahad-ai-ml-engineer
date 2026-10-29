@@ -1,4 +1,4 @@
-import {
+﻿import {
   lazy,
   Suspense,
   useCallback,
@@ -348,13 +348,15 @@ export default function RobotWorld() {
   }
 
   const activeIndex = hoveredIndex ?? touchGreeting
+  const showScene =
+    webglSupported === true && ready && !mobile && !reducedMotion
 
   return (
     <>
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <LabAmbient withRobots={webglSupported === false} />
+        <LabAmbient withRobots={!showScene} />
 
-        {webglSupported === true && ready && (
+        {showScene && (
           <Suspense fallback={null}>
             <RobotScene
               hoveredIndex={activeIndex}
@@ -372,7 +374,7 @@ export default function RobotWorld() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-bg/80 to-transparent" />
       </div>
 
-      {webglSupported === true && (
+      {showScene && (
         <div className="pointer-events-none fixed inset-0 z-20">
           {ROBOTS.map((robot, index) => (
             <button
@@ -425,9 +427,22 @@ export default function RobotWorld() {
         </div>
       )}
 
+      {!showScene && !assistantOpen && (
+        <button
+          type="button"
+          data-robot-ui="true"
+          onClick={() => openAssistant(0)}
+          aria-haspopup="dialog"
+          className="fixed bottom-5 right-5 z-30 rounded-full border border-cyan/30 bg-bg/90 px-4 py-2.5 text-sm font-medium text-accent shadow-[0_18px_50px_-24px_rgba(85,214,255,0.8)] backdrop-blur transition hover:border-cyan/60 hover:text-cyan"
+        >
+          Ask the AI lab
+        </button>
+      )}
+
       <div className="pointer-events-none fixed inset-0 z-40">
         <RobotAssistantPanel open={assistantOpen} onClose={closeAssistant} />
       </div>
     </>
   )
 }
+

@@ -1,0 +1,148 @@
+[
+  {
+    "title": "DevPilot AI: Sandboxed AI Developer Agent",
+    "slug": "devpilot-ai",
+    "category": "AI Agents",
+    "description": "CLI AI agent that turns natural-language requests into plans and executes them through sandboxed tools with permission gates, workspace boundaries, shell allowlists, secret redaction, and SQLite audit logs.",
+    "tech": ["Python", "LLM Agents", "OpenRouter", "SQLite", "pytest"],
+    "github": "https://github.com/basharatfahad54-del/Devpilot-Ai",
+    "featured": true,
+    "page": {
+      "seoTitle": "DevPilot AI: Sandboxed AI Developer Agent Case Study | Fahad",
+      "metaDescription": "Case study of DevPilot AI, a Python AI developer agent that plans tasks and executes sandboxed tools behind permission gates, workspace boundaries, and SQLite audit logs.",
+      "summary": "A CLI AI developer agent built to demonstrate the control plane around an LLM: planning, tool calls, permissions, and auditable execution.",
+      "problem": "Giving an LLM filesystem and shell access can make coding agents useful and dangerous. Many demos skip the workspace boundaries, command allowlists, approval gates, and audit trails needed to control model actions.",
+      "approach": [
+        "Generates a numbered plan with an OpenRouter-compatible LLM and falls back to a deterministic plan when the model is unavailable.",
+        "Exposes four tools: read_file, write_file, search_project, and safe_terminal.",
+        "Treats every model action as untrusted input and checks it through a deterministic permission layer before execution.",
+        "Persists task and tool-call history to SQLite with redacted arguments and approval decisions."
+      ],
+      "architecture": [
+        "CLI to agent loop to planner and LLM provider, then the permission gate, tool registry, and tool execution.",
+        "Write and execute actions are gated before execution and logged to SQLite before the next planning step.",
+        "Workspace boundaries reject path traversal, while shell commands are deny-by-default with a hard denylist."
+      ],
+      "evidence": [
+        "Open-source repository with 26 tests: 19 unit and 7 integration.",
+        "README documents a live sample run, the safety model, setup, limitations, and a GitHub Actions CI workflow."
+      ],
+      "limitations": [
+        "There is no OS-level container sandbox; safe_terminal runs with the host user's privileges.",
+        "The agent loop is single-agent, without parallel tool execution or streaming.",
+        "Approval is CLI-only; the Streamlit dashboard is for visual demonstration."
+      ],
+      "keywords": [
+        "AI agent development",
+        "Python AI agent",
+        "LLM tool orchestration",
+        "sandboxed AI agent",
+        "OpenRouter"
+      ]
+    }
+  },
+  {
+    "title": "TalentMatch AI: Resume Screening and Candidate Ranking",
+    "slug": "ai-resume-screening",
+    "category": "AI / ML",
+    "description": "Parses resumes and job descriptions, ranks candidates with an auditable weighted scoring model, and surfaces evidence behind each score for explainable candidate matching.",
+    "tech": ["Python", "FastAPI", "NLP", "scikit-learn", "React", "TypeScript", "PostgreSQL"],
+    "github": "https://github.com/basharatfahad54-del/AI-Resume-Screening-Candidate-Ranking-System",
+    "featured": true,
+    "page": {
+      "seoTitle": "TalentMatch AI: Explainable Resume Ranking Case Study | Fahad",
+      "metaDescription": "Case study of TalentMatch AI, a Python and FastAPI recruitment decision-support app that ranks resumes with an auditable six-part scoring model and visible evidence.",
+      "summary": "A recruitment decision-support platform that parses resumes and job descriptions, ranks candidates, and shows the evidence behind every score.",
+      "problem": "Recruiters need help processing applications without handing final decisions to an opaque model. Candidate ranking must remain explainable, auditable, and open to human review.",
+      "approach": [
+        "Parses resumes and job descriptions into structured candidate and role data.",
+        "Scores six weighted components: required skills, experience, education, preferred skills, text similarity, and certifications.",
+        "Returns matched and missing skills plus component scores so a reviewer can inspect the evidence.",
+        "Keeps learned reranking offline after an experiment found no statistically significant NDCG@5 gain over the interpretable scorer."
+      ],
+      "architecture": [
+        "FastAPI and SQLAlchemy async API with JWT authentication, Pydantic, and Alembic migrations.",
+        "React, TypeScript, Vite frontend with React Router and TanStack Query.",
+        "PostgreSQL in Docker and SQLite for local development.",
+        "scikit-learn offline experiment on a synthetic corpus; it is not part of the request path."
+      ],
+      "evidence": [
+        "The repository README reports 51 API tests, 57 ML tests, and 14 web tests passing at the time of writing.",
+        "The authored reranker experiment is reported as statistically tied on NDCG@5 (p = 0.511), so the interpretable scorer remains shipped.",
+        "Protected attributes are structurally excluded from ranking features, and the system ranks and explains rather than auto-rejecting."
+      ],
+      "limitations": [
+        "ML results come from a synthetic corpus, not real hiring outcomes.",
+        "Default hashing embeddings are an offline fallback; semantic matching improves with sentence-transformers or OpenAI embeddings.",
+        "There is no automated rejection or auto-screening by design."
+      ],
+      "keywords": [
+        "AI resume screening",
+        "candidate ranking",
+        "explainable AI recruitment",
+        "FastAPI AI application",
+        "natural language processing"
+      ]
+    }
+  },
+  {
+    "title": "3D MRI Brain Tumor Segmentation",
+    "slug": "mri-brain-tumor-segmentation",
+    "category": "AI / ML",
+    "description": "Deep learning approach for volumetric 3D MRI brain tumor segmentation using 3D U-Net to detect and isolate tumor regions.",
+    "tech": ["Python", "Deep Learning", "3D U-Net", "Medical Imaging"],
+    "github": "https://github.com/basharatfahad54-del/3d-MRI-Brain-tumor-segmentation",
+    "featured": true,
+    "page": {
+      "seoTitle": "3D MRI Brain Tumor Segmentation with 3D U-Net | Fahad",
+      "metaDescription": "A Python deep learning project for volumetric 3D MRI brain tumor segmentation using a 3D U-Net workflow with preprocessing, training, and evaluation pipelines.",
+      "summary": "A deep learning repository for volumetric brain tumor segmentation in 3D MRI scans using a 3D U-Net workflow.",
+      "problem": "Tumor regions must be isolated from volumetric MRI data, where tumors vary in shape, size, and location across slices and patients.",
+      "approach": [
+        "Preprocesses volumetric MRI data for training.",
+        "Implements a 3D U-Net-style network for voxel-level segmentation.",
+        "Includes training and evaluation code for measuring segmentation quality.",
+        "Organizes the work as a reproducible deep learning repository."
+      ],
+      "architecture": [
+        "Python deep learning pipeline for medical image analysis.",
+        "3D U-Net architecture for volumetric segmentation.",
+        "Preprocessing to training to evaluation workflow.",
+        "Medical imaging data handling with evaluation metrics."
+      ],
+      "evidence": [
+        "The public repository describes a 3D U-Net implementation with preprocessing, training, and evaluation code.",
+        "No Dice score, dataset benchmark, or clinical validation is claimed on this page because those outcomes were not independently verified during this audit."
+      ],
+      "limitations": [
+        "This is a research and portfolio project, not a clinical diagnostic system.",
+        "Dataset details, final metrics, and deployment constraints require a repository review before being presented as outcomes."
+      ],
+      "keywords": [
+        "3D MRI brain tumor segmentation",
+        "3D U-Net",
+        "medical image segmentation",
+        "deep learning healthcare",
+        "Python computer vision"
+      ]
+    }
+  },
+  {
+    "title": "HR Manager Web App",
+    "slug": "hr-manager-webapp",
+    "category": "Full-Stack",
+    "description": "Web-based HR management system covering employee records, attendance, leave, payroll, and core HR operations.",
+    "tech": ["JavaScript", "HTML", "CSS"],
+    "github": "https://github.com/basharatfahad54-del/HR_Manager_webapp",
+    "featured": false
+  },
+  {
+    "title": "Any Video Downloader",
+    "slug": "any-video-downloader",
+    "category": "Developer Tools",
+    "description": "Lightweight FastAPI app with web UI and REST endpoint for downloading videos; currently supports TikTok.",
+    "tech": ["Python", "FastAPI", "REST API"],
+    "github": "https://github.com/basharatfahad54-del/Any-video-downloader",
+    "featured": false
+  }
+]

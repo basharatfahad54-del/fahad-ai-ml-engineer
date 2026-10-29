@@ -17,11 +17,14 @@ function App() {
         <div className="absolute left-1/2 top-[-20%] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute bottom-[-30%] right-[-10%] h-[520px] w-[520px] rounded-full bg-violet/10 blur-3xl" />
       </div>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <CursorGlow />
       <RobotWorld />
       <Navbar />
       <div className="relative z-10">
-        <main>
+        <main id="main-content" tabIndex={-1}>
           <Hero />
           <TrustStrip />
           <About />

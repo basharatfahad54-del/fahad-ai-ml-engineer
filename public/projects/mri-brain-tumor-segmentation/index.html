@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D MRI Brain Tumor Segmentation with 3D U-Net | Fahad</title>
+    <meta name="description" content="A Python deep learning project for volumetric 3D MRI brain tumor segmentation using a 3D U-Net workflow with preprocessing, training, and evaluation pipelines.">
+    <meta name="author" content="Engr. Muhammad Fahad">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <link rel="canonical" href="https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Fahad AI">
+    <meta property="og:title" content="3D MRI Brain Tumor Segmentation with 3D U-Net | Fahad">
+    <meta property="og:description" content="A Python deep learning project for volumetric 3D MRI brain tumor segmentation using a 3D U-Net workflow with preprocessing, training, and evaluation pipelines.">
+    <meta property="og:url" content="https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/">
+    <meta property="og:image" content="https://fahad-ai-portfolio.vercel.app/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="3D MRI Brain Tumor Segmentation - case study by Engr. Muhammad Fahad">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="3D MRI Brain Tumor Segmentation with 3D U-Net | Fahad">
+    <meta name="twitter:description" content="A Python deep learning project for volumetric 3D MRI brain tumor segmentation using a 3D U-Net workflow with preprocessing, training, and evaluation pipelines.">
+    <meta name="twitter:image" content="https://fahad-ai-portfolio.vercel.app/og-image.jpg">
+    <meta name="theme-color" content="#080B12">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/seo.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareSourceCode","@id":"https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/#project","name":"3D MRI Brain Tumor Segmentation","description":"A Python deep learning project for volumetric 3D MRI brain tumor segmentation using a 3D U-Net workflow with preprocessing, training, and evaluation pipelines.","url":"https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/","codeRepository":"https://github.com/basharatfahad54-del/3d-MRI-Brain-tumor-segmentation","programmingLanguage":["Python","Deep Learning","3D U-Net","Medical Imaging"],"author":{"@id":"https://fahad-ai-portfolio.vercel.app/#person"},"isPartOf":{"@id":"https://fahad-ai-portfolio.vercel.app/#website"},"about":[{"@type":"Thing","name":"3D MRI brain tumor segmentation"},{"@type":"Thing","name":"3D U-Net"},{"@type":"Thing","name":"medical image segmentation"},{"@type":"Thing","name":"deep learning healthcare"},{"@type":"Thing","name":"Python computer vision"}],"keywords":"3D MRI brain tumor segmentation, 3D U-Net, medical image segmentation, deep learning healthcare, Python computer vision","isAccessibleForFree":true,"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fahad-ai-portfolio.vercel.app/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://fahad-ai-portfolio.vercel.app/#projects"},{"@type":"ListItem","position":3,"name":"3D MRI Brain Tumor Segmentation","item":"https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/"}]},{"@type":"WebPage","@id":"https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/#webpage","url":"https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/","name":"3D MRI Brain Tumor Segmentation with 3D U-Net | Fahad","description":"A Python deep learning project for volumetric 3D MRI brain tumor segmentation using a 3D U-Net workflow with preprocessing, training, and evaluation pipelines.","isPartOf":{"@id":"https://fahad-ai-portfolio.vercel.app/#website"},"about":{"@id":"https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/#project"},"breadcrumb":{"@id":"https://fahad-ai-portfolio.vercel.app/projects/mri-brain-tumor-segmentation/#breadcrumb"},"inLanguage":"en","primaryImageOfPage":{"@type":"ImageObject","url":"https://fahad-ai-portfolio.vercel.app/og-image.jpg","width":1200,"height":630}},{"@type":"ItemList","name":"Related AI and machine learning projects","itemListElement":[{"@type":"ListItem","position":1,"url":"https://fahad-ai-portfolio.vercel.app/projects/devpilot-ai/","name":"DevPilot AI: Sandboxed AI Developer Agent"},{"@type":"ListItem","position":2,"url":"https://fahad-ai-portfolio.vercel.app/projects/ai-resume-screening/","name":"TalentMatch AI: Resume Screening and Candidate Ranking"}]}]}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="/" aria-label="Fahad AI home">Fahad <span>AI</span></a>
+        <nav aria-label="Primary navigation">
+          <a href="/#about">About</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#services">Services</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="shell">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="/#projects">Projects</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">3D MRI Brain Tumor Segmentation</span>
+      </nav>
+
+      <article>
+        <header class="article-hero">
+          <p class="eyebrow">AI / ML &middot; Case study</p>
+          <h1>3D MRI Brain Tumor Segmentation</h1>
+          <p class="lead">A deep learning repository for volumetric brain tumor segmentation in 3D MRI scans using a 3D U-Net workflow.</p>
+          <ul class="pill-list" aria-label="Technologies used">
+            <li>Python</li>
+            <li>Deep Learning</li>
+            <li>3D U-Net</li>
+            <li>Medical Imaging</li>
+          </ul>
+          <div class="cta-row">
+            <a class="button primary" href="https://github.com/basharatfahad54-del/3d-MRI-Brain-tumor-segmentation" rel="noopener">View the source on GitHub</a>
+            <a class="button" href="/#contact">Discuss a similar project</a>
+          </div>
+        </header>
+
+        <div class="article-grid">
+          <div class="article-body">
+            <section aria-labelledby="problem-heading">
+              <h2 id="problem-heading">The problem</h2>
+              <p>Tumor regions must be isolated from volumetric MRI data, where tumors vary in shape, size, and location across slices and patients.</p>
+            </section>
+
+            <section aria-labelledby="approach-heading">
+              <h2 id="approach-heading">How it works</h2>
+              <ul class="detail-list">
+                <li>Preprocesses volumetric MRI data for training.</li>
+                <li>Implements a 3D U-Net-style network for voxel-level segmentation.</li>
+                <li>Includes training and evaluation code for measuring segmentation quality.</li>
+                <li>Organizes the work as a reproducible deep learning repository.</li>
+              </ul>
+            </section>
+
+            <section aria-labelledby="architecture-heading">
+              <h2 id="architecture-heading">Architecture</h2>
+              <ul class="detail-list">
+                <li>Python deep learning pipeline for medical image analysis.</li>
+                <li>3D U-Net architecture for volumetric segmentation.</li>
+                <li>Preprocessing to training to evaluation workflow.</li>
+                <li>Medical imaging data handling with evaluation metrics.</li>
+              </ul>
+            </section>
+
+            <section aria-labelledby="evidence-heading">
+              <h2 id="evidence-heading">Repository evidence</h2>
+              <ul class="detail-list evidence">
+                <li>The public repository describes a 3D U-Net implementation with preprocessing, training, and evaluation code.</li>
+                <li>No Dice score, dataset benchmark, or clinical validation is claimed on this page because those outcomes were not independently verified during this audit.</li>
+              </ul>
+            </section>
+
+            <section aria-labelledby="scope-heading">
+              <h2 id="scope-heading">Limitations and scope</h2>
+              <ul class="detail-list">
+                <li>This is a research and portfolio project, not a clinical diagnostic system.</li>
+                <li>Dataset details, final metrics, and deployment constraints require a repository review before being presented as outcomes.</li>
+              </ul>
+              <p class="note">Claims on this page are limited to the public repository scope. Metrics and capabilities are attributed to the project documentation rather than presented as independently audited benchmarks.</p>
+            </section>
+          </div>
+
+          <aside class="article-sidebar" aria-label="Project details">
+            <div class="side-card">
+              <p class="eyebrow">Project links</p>
+              <a href="https://github.com/basharatfahad54-del/3d-MRI-Brain-tumor-segmentation" rel="noopener">GitHub repository</a>
+              <a href="/#projects">All projects</a>
+              <a href="https://www.linkedin.com/in/muhammad-fahad-8b6258370/" rel="me noopener">LinkedIn</a>
+            </div>
+            <div class="side-card">
+              <p class="eyebrow">Focus areas</p>
+              <ul class="sidebar-tags">
+                <li>3D MRI brain tumor segmentation</li>
+                <li>3D U-Net</li>
+                <li>medical image segmentation</li>
+                <li>deep learning healthcare</li>
+                <li>Python computer vision</li>
+              </ul>
+            </div>
+            <div class="side-card">
+              <p class="eyebrow">Need something similar?</p>
+              <p>Fahad builds Python AI applications, agents, RAG systems, and FastAPI backends.</p>
+              <a class="button primary full" href="/#contact">Start a conversation</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+
+      <section class="related-section" aria-labelledby="related-heading">
+        <p class="eyebrow">More work</p>
+        <h2 id="related-heading">Related projects</h2>
+        <div class="related-grid">
+          <a class="related-card" href="/projects/devpilot-ai/">
+          <span class="eyebrow">AI Agents</span>
+          <strong>DevPilot AI: Sandboxed AI Developer Agent</strong>
+          <span>A CLI AI developer agent built to demonstrate the control plane around an LLM: planning, tool calls, permissions, and auditable execution.</span>
+        </a>
+          <a class="related-card" href="/projects/ai-resume-screening/">
+          <span class="eyebrow">AI / ML</span>
+          <strong>TalentMatch AI: Resume Screening and Candidate Ranking</strong>
+          <span>A recruitment decision-support platform that parses resumes and job descriptions, ranks candidates, and shows the evidence behind every score.</span>
+        </a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <p>&copy; 2026 Engr. Muhammad Fahad. Microsoft &amp; Huawei Certified AI/ML Engineer.</p>
+        <div class="footer-links">
+          <a href="/#projects">Projects</a>
+          <a href="https://github.com/basharatfahad54-del" rel="me noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/muhammad-fahad-8b6258370/" rel="me noopener">LinkedIn</a>
+          <a href="/#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
